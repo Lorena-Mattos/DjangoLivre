@@ -11,7 +11,3 @@ class ClientesViewSet(viewsets.ModelViewSet):  # a ClientesViewSet é a herança
         if self.request.method in ['GET']:
             return ClienteSerializer
         return self.serializer_class
-
-# from django.shortcuts import render
-
-# Create your views here.

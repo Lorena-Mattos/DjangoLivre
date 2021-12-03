@@ -15,5 +15,5 @@ class Transferencia(models.Model):
     date_time = models.DateTimeField('Data e Horário')
     sender = models.ForeignKey(Conta, related_name='+', on_delete=models.DO_NOTHING)
     recipient = models.ForeignKey(Conta, related_name='+', on_delete=models.DO_NOTHING)
-    # a ForeignKey recebe o objeto como um tod. Talvez seja importante deixar a função
+    # a ForeignKey recebe o objeto como um tod o. Talvez seja importante deixar a função
     # def__str__ nas ForeignKeys.

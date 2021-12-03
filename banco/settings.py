@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'DjangoLivre',
         'USER': 'root',
-        'PASSWORD': '',  # alterar para sua senha do MySQL, ao subir pro GitHub deixe vazio
+        'PASSWORD': 'batata123',  # alterar para sua senha do MySQL, ao subir pro GitHub deixe vazio
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -112,9 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = 'pt-br'  # pode mudar o idioma para o desejado
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'America/Sao_Paulo'  # pode mudar o fuso-horário para o desejado
 
 USE_I18N = True
 
