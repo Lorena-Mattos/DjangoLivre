@@ -11,15 +11,15 @@ O projeto deve ter os seguintes requerimentos:
 -  [x] Banco de dados criado e populado no MySQL;
 -  [x] O projeto do banco "Django Livre" usando o Django Rest Framework;
 -  [x] Endpoints;
--  [x] Tarefa 4;
+-  [x] Templates.
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-- Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
-- Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
-- Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
+- Você instalou a versão mais recente de Python3, pip3, Django, Django Rest Framework, MySQLClient, MySQL;
+- Você tem uma máquina Windows / Linux / MacOS;
+- Você leu as instruções descritas abaixo.
 
 ## 🚀 Instalando DjangoLivre
 
@@ -27,27 +27,41 @@ Para instalar o DjangoLivre, siga estas etapas:
 
 Linux e macOS:
 
-```
-<comando_de_instalação>
-```
+Para instalar a versão mais recente do Python3: https://www.python.org/downloads/
+Para instalar o MySQL na sua máquina: https://dev.mysql.com/downloads/installer/
+Após o clone do projeto, inicie o ambiente virtual criado: source venv/bin/activate
+Caso não tenha o pip instalado, digite no terminal: python get-pip.py
+Após fazê-lo, digite: pip install Django.
+Instale em seguida o REST: pip install djangorestframework
+e o MySQLclient: pip install mysqlclient.
 
 Windows:
 
-```
-<comando_de_instalação>
-```
+Para instalar a versão mais recente do Python3: https://www.python.org/downloads/
+Para instalar o MySQL na sua máquina: https://dev.mysql.com/downloads/installer/
+Após o clone do projeto, inicie o ambiente virtual criado: virtualenv\venv\Scripts\activate.bat
+Caso não tenha o pip instalado, digite no terminal: python get-pip.py
+Após fazê-lo, digite: pip install Django.
+Instale em seguida o REST: pip install djangorestframework
+e o MySQLclient: pip install mysqlclient.
 
 ## ☕ Usando DjangoLivre
 
-Para usar DjangoLivre, siga estas etapas:
+  Para usar DjangoLivre, siga estas etapas:
 
-```
-<exemplo_de_uso>
-```
-
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
-
-
+  Abra o arquivo na sua IDE de escolha. Em <settings.py>, dentro de <banco>, insira sua senha do MySQL na parte: 
+linha 81  <DATABASES = {
+             ...
+linha 86             PASSWORD: ''>
+para que ele se conecte com o arquivo de banco de dados já importado no MySQL.
+  Se desejar mudar o idioma e o fuso horário do projeto, também em <settings.py>:
+linha 115          <LANGUAGE_CODE = 'pt-br'
+                         
+linha 117          <TIME_ZONE = 'America/Sao_Paulo'>
+  Para conseguir iniciar o projeto no localhost em um navegador, digite: python manage.py runserver
+e clique no link gerado (provavelmente http://localhost:8000/ ou http://127.0.0.1:8000/).
+  As URLs disponíveis são: /cadastro, /enderecos, /contas, /transferencias.
+  Clique em cada uma delas e digite os dados requisitados.
 
 ## :woman_technologist: Desenvolvedoras
 
