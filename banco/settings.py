@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'DjangoLivre',
         'USER': 'root',
-        'PASSWORD': 'batata123',  # alterar para sua senha do MySQL, ao subir pro GitHub deixe vazio
+        'PASSWORD': '',  # alterar para sua senha do MySQL, ao subir pro GitHub deixe vazio
         'HOST': 'localhost',
         'PORT': '3306',
     }
