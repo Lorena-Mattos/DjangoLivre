@@ -6,13 +6,12 @@
 
 > DjangoLivre é um projeto feito com Django e REST que simula um sistema bancário. 
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+O projeto deve ter os seguintes requerimentos:
 
--  [x] Tarefa 1
--  [x] Tarefa 2
--  [x] Tarefa 3
--  [ ] Tarefa 4
--  [ ] Tarefa 5
+-  [x] Banco de dados criado e populado no MySQL;
+-  [x] O projeto do banco "Django Livre" usando o Django Rest Framework;
+-  [x] Endpoints;
+-  [x] Tarefa 4;
 
 ## 💻 Pré-requisitos
 
