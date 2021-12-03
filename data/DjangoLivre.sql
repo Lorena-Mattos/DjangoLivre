@@ -34,11 +34,11 @@ CREATE TABLE `address` (
   `city` varchar(30) DEFAULT NULL,
   `state` varchar(30) DEFAULT NULL,
   `country` varchar(30) DEFAULT 'Brazil',
-  `id_client` int DEFAULT NULL,
+  `client_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
-  KEY `id_client` (`id_client`),
-  CONSTRAINT `address_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`)
+  KEY `client_id` (`client_id`),
+  CONSTRAINT `address_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -65,13 +65,13 @@ CREATE TABLE `bank_account` (
   `account_number` varchar(7) NOT NULL,
   `account_type` enum('001','013') DEFAULT NULL,
   `balance` float DEFAULT NULL,
-  `id_client` int DEFAULT NULL,
+  `client_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `number_account` (`account_number`),
   UNIQUE KEY `account_number` (`account_number`),
-  KEY `id_client` (`id_client`),
-  CONSTRAINT `bank_account_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`)
+  KEY `client_id` (`client_id`),
+  CONSTRAINT `bank_account_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -126,16 +126,16 @@ DROP TABLE IF EXISTS `transactions`;
 CREATE TABLE `transactions` (
   `id` int NOT NULL AUTO_INCREMENT,
   `transaction_type` enum('PIX','TED','DOC') DEFAULT NULL,
-  `id_recipient` int DEFAULT NULL,
-  `id_sender` int DEFAULT NULL,
+  `recipient_id` int DEFAULT NULL,
+  `sender_id` int DEFAULT NULL,
   `amount` float DEFAULT NULL,
   `date_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
-  KEY `id_conta_recebedor` (`id_recipient`),
-  KEY `id_conta_pagador` (`id_sender`),
-  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`id_recipient`) REFERENCES `client` (`id`),
-  CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`id_sender`) REFERENCES `client` (`id`)
+  KEY `id_conta_recebedor` (`recipient_id`),
+  KEY `id_conta_pagador` (`sender_id`),
+  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`recipient_id`) REFERENCES `client` (`id`),
+  CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`sender_id`) REFERENCES `client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
