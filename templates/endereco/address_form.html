@@ -1,0 +1,175 @@
+{% extends 'navbar/navbar.html' %}
+{% block style %}
+.wrapper{
+  position: relative;
+  max-width: 750px;
+  width: 100%;
+  background: #fff;
+  padding: 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.wrapper h2{
+  position: relative;
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+}
+.wrapper h2::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 28px;
+  border-radius: 12px;
+  background: #cc0000;
+}
+.wrapper form{
+  margin-top: 30px;
+}
+.wrapper form .input-box{
+  height: 52px;
+  margin: 18px 0;
+}
+form .input-box input{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.input-box input:focus,
+.input-box input:valid{
+  border-color: #4070f4;
+}
+form .policy{
+  display: flex;
+  align-items: center;
+}
+form h3{
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.input-box.button input{
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  background: #cc0000;
+  cursor: pointer;
+}
+.input-box.button input:hover{
+  background: #0e4bf1;
+}
+form .text h3{
+ color: #333;
+ width: 100%;
+ text-align: center;
+}
+form .text h3 a{
+  color: #4070f4;
+  text-decoration: none;
+}
+form .text h3 a:hover{
+  text-decoration: underline;
+}
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+      <h2>Endereço</h2>
+      <form action="." method="POST">{% csrf_token %}
+        <div class="input-box">
+          <input type="text" name="street" maxlength="50" required="" id="id_street" placeholder="Rua">
+        </div>
+        <div class="input-box">
+          <input type="text" name="building_number" maxlength="5" required="" id="id_building_number" placeholder="Número">
+        </div>
+        <div class="input-box">
+          <input type="text" name="district" maxlength="50" required="" id="id_district" placeholder="Bairro">
+        </div>
+        <div class="input-box">
+          <input type="text" name="address_complement" maxlength="100" required="" id="id_address_complement" placeholder="Complemento">
+        </div>
+        <div class="input-box">
+          <input type="text" name="city" maxlength="30" required="" id="id_city" placeholder="Cidade">
+        </div>
+        <div class="input-box">
+         <input type="text" name="zip_code" maxlength="8" required="" id="id_zip_code" placeholder="CEP">
+        </div>
+        <div class="input-box">
+         <select name="state" required="" id="id_state">
+            <option value="" selected="">Selecione seu estado</option>
+
+            <option value="AC">Acre</option>
+
+            <option value="AL">Alagoas</option>
+
+            <option value="AP">Amapá</option>
+
+            <option value="AM">Amazonas</option>
+
+            <option value="BA">Bahia</option>
+
+            <option value="CE">Ceará</option>
+
+            <option value="DF">Distrito Federal</option>
+
+            <option value="ES">Espírito Santo</option>
+
+            <option value="GO">Goiás</option>
+
+            <option value="MA">Maranhão</option>
+
+            <option value="MT">Mato Grosso</option>
+
+            <option value="MS">Mato Grosso do Sul</option>
+
+            <option value="MG">Minas Gerais</option>
+
+            <option value="PA">Pará</option>
+
+            <option value="PB">Paraíba</option>
+
+            <option value="PR">Paraná</option>
+
+            <option value="PE">Pernambuco</option>
+
+            <option value="PI">Piauí</option>
+
+            <option value="RJ">Rio de Janeiro</option>
+
+            <option value="RN">Rio Grande do Norte</option>
+
+            <option value="RS">Rio Grande do Sul</option>
+
+            <option value="RO">Rondônia</option>
+
+            <option value="RR">Roraima</option>
+
+            <option value="SC">Santa Catarina</option>
+
+            <option value="SP">São Paulo</option>
+
+            <option value="SE">Sergipe</option>
+
+            <option value="TO">Tocantins</option>
+
+          </select>
+        </div>
+        <div class="input-box button">
+          <input type="Submit" value="Salvar endereço">
+        </div>
+      </form>
+</div>
+{% endblock %}

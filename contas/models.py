@@ -15,5 +15,7 @@ class Conta(models.Model):
     balance = models.FloatField('Saldo')
     client = models.ForeignKey(Cliente, related_name='+', on_delete=models.DO_NOTHING)
 
+    objects = models.Manager()
+
     def __str__(self) -> str:
         return str(self.id)

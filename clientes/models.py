@@ -11,5 +11,7 @@ class Cliente(models.Model):
     phone = models.CharField('Telefone', max_length=50)
     birth_date = models.DateField('Data de Nascimento')
 
+    objects = models.Manager()
+
     def __str__(self):
         return self.given_name + ' ' + self.last_name

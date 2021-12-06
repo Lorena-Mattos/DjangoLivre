@@ -1,0 +1,61 @@
+{% extends 'navbar/navbar.html' %}
+{% block style %}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow-y: hidden;
+}
+.styled-table thead tr {
+    background-color: #cc0000;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+     background-color: #ccc;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+{% endblock %}
+{% block content %}
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Saldo</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for instance in object_list %}
+            <tr>
+                <td>{{ instance.given_name }}</td>
+                <td>{{ instance.last_name }}</td>
+                {% for saldo in contas_list %}
+                    {% if instance.id == saldo.id %}
+                        <td>{{ saldo.balance }} </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+       {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

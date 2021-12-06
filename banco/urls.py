@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from clientes.views import ClientesViewSet
-from enderecos.views import EnderecoViewSet
+from clientes.views import ClientesViewSet, register_client_view, client_list_view
+from enderecos.views import EnderecoViewSet, address_form_view
 from contas.views import ContaViewSet
-from transferencias.views import TransferenciaViewSet
+from transferencias.views import TransferenciaViewSet, transaction_view
 
 router = routers.DefaultRouter()
 router.register(r'cadastro', ClientesViewSet)
@@ -15,6 +15,10 @@ router.register(r'transferencias', TransferenciaViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('register/', register_client_view, name='register'),
+    path('gerente/', client_list_view, name='gerente'),
+    path('transacao/', transaction_view),
+    path('address/', address_form_view)
 ]
 
 

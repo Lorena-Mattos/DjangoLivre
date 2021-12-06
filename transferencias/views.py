@@ -5,6 +5,9 @@ from .models import Transferencia
 from .serializer import TransferenciaSerializer
 from clientes.models import Cliente
 from contas.models import Conta
+# Templates imports abaixo
+from django.shortcuts import render
+from .forms import TransactionForm
 
 
 class TransferenciaViewSet(viewsets.ModelViewSet):
@@ -40,3 +43,15 @@ class TransferenciaViewSet(viewsets.ModelViewSet):
 
         return Response("Cliente não possui saldo suficiente para realizar a transferência solicitada.",
                         status=status.HTTP_412_PRECONDITION_FAILED)
+
+
+# Funções de Templates abaixo
+
+
+def transaction_view(request):
+    form = TransactionForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = TransactionForm()
+    context = {'form': form}
+    return render(request, 'transferencias/transaction.html', context)
